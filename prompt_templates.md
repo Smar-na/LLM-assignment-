@@ -1,4 +1,4 @@
-# Prompt Templates — Toxic Comment Classification
+# Prompt Templates - Toxic Comment Classification
 
 This document contains all prompt templates used across the four GPT-4.1 classification pipelines. Each template is versioned and annotated with its design rationale. Templates are referenced in the report (Section 2.3) and implemented in the corresponding notebooks.
 
@@ -20,7 +20,7 @@ This document contains all prompt templates used across the four GPT-4.1 classif
 
 ---
 
-## 1. Method 1 — Zero-Shot Prompt
+## 1. Method 1 - Zero-Shot Prompt
 
 **File:** `Finalmethod1_zero_shot.ipynb`  
 **Strategy:** Zero-shot with role assignment, label definitions, decision guidelines, and strict JSON output enforcement  
@@ -80,7 +80,7 @@ Comment: "{comment}"
 
 ---
 
-## 2. Method 2 — Few-Shot Static Prompt
+## 2. Method 2 - Few-Shot Static Prompt
 
 **File:** `Finalmethod2_few_shot_simple.ipynb`  
 **Strategy:** Static few-shot with 41 curated real examples covering all label combinations in the Jigsaw dataset  
@@ -119,7 +119,7 @@ Output ONLY this JSON with confidence scores 0-100 for each label and nothing el
 
 ---
 
-## 3. Method 3 — RAG Dynamic Prompt
+## 3. Method 3 - RAG Dynamic Prompt
 
 **File:** `FINAL_METHOD3_RAGDYNAMIC.ipynb`  
 **Strategy:** Per-query dynamic retrieval via `text-embedding-3-small` cosine similarity; top-7 examples injected per comment  
@@ -194,7 +194,7 @@ OUTPUT REQUIREMENTS:
 
 ---
 
-## 4. Method 4 — Label-Aware RAG Prompt (Main)
+## 4. Method 4 - Label-Aware RAG Prompt (Main)
 
 **File:** `FINAL_METHOD4.ipynb`  
 **Strategy:** Label-aware retrieval with purity-ranked examples, 4-point severity rubric, boundary examples for each label, and explicit failure-mode warnings  
@@ -269,7 +269,7 @@ Output ONLY this JSON with confidence scores 0-100 and nothing else:
 
 ---
 
-## 5. Method 4 — Severity Check Prompt (Second Pass)
+## 5. Method 4 - Severity Check Prompt (Second Pass)
 
 **File:** `FINAL_METHOD4.ipynb`  
 **Trigger:** Called when `toxic ≥ 40` AND `20 ≤ severe_toxic ≤ 65` in the main prompt output  
@@ -296,7 +296,7 @@ Output ONLY this JSON:
 
 ---
 
-## 6. Method 4 — Identity Hate Check Prompt (Second Pass)
+## 6. Method 4 - Identity Hate Check Prompt (Second Pass)
 
 **File:** `FINAL_METHOD4.ipynb`  
 **Trigger:** Called when `identity_hate` hint ≥ 0.08 AND `15 ≤ identity_hate score ≤ 55` in the main prompt output  
